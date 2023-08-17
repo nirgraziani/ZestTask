@@ -9,14 +9,16 @@ interface IAwsResources {
 const ARNsPath = path.join(__dirname, "../ARNs/resources");
 const outputFilePath = path.join("./json_results", "aws_resources.json");
 
-fs.readFile(ARNsPath, "utf8", (err, data) => {
-  if (err) {
-    console.error("Error reading the file:", err);
-    return;
-  }
-  const extarcetedData = extractContent(data);
-  ConvertToJson(extarcetedData);
-});
+const ReadResourceFile = () => {
+  fs.readFile(ARNsPath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return;
+    }
+    const extarcetedData = extractContent(data);
+    ConvertToJson(extarcetedData);
+  });
+};
 
 const extractContent = (data: string) => {
   const awsResources: IAwsResources[] = [];
