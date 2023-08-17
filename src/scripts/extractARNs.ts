@@ -1,16 +1,16 @@
-const fs = require("fs");
-const path = require("path");
+const extractFs = require("fs");
+const extractPath = require("path");
 
 interface IAwsResources {
   ARN: string;
   ResourceType: string;
 }
 
-const ARNsPath = path.join(__dirname, "../ARNs/resources");
-const outputFilePath = path.join("./json_results", "aws_resources.json");
+const ARNsPath = extractPath.join(__dirname, "../ARNs/resources");
+const outputFilePath = extractPath.join("./json_results", "aws_resources.json");
 
 const ReadResourceFile = () => {
-  fs.readFile(ARNsPath, "utf8", (err, data) => {
+  extractFs.readFile(ARNsPath, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading the file:", err);
       return;
@@ -36,7 +36,7 @@ const extractContent = (data: string) => {
 };
 
 const ConvertToJson = (extarcetedData: IAwsResources[]) => {
-  fs.writeFile(
+  extractFs.writeFile(
     outputFilePath,
     JSON.stringify(extarcetedData, null, 2),
     (err) => {
@@ -47,4 +47,8 @@ const ConvertToJson = (extarcetedData: IAwsResources[]) => {
       }
     }
   );
+};
+
+module.exports = {
+  ReadResourceFile: ReadResourceFile
 };

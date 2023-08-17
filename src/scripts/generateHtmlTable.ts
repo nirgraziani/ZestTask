@@ -1,8 +1,11 @@
-const inputFilePath = path.join("./json_results", "aws_resources.json");
-const templateFilePath = path.join("./src", "tableDisplayTemplate.html");
+const htmlFs = require("fs");
+const htmlPath = require("path");
+
+const inputFilePath = htmlPath.join("./json_results", "aws_resources.json");
+const templateFilePath = htmlPath.join("./src", "tableDisplayTemplate.html");
 
 const ReadJsonResources = () => {
-  fs.readFile(inputFilePath, "utf8", (err, data) => {
+  htmlFs.readFile(inputFilePath, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading the JSON file:", err);
       return;
@@ -23,7 +26,7 @@ const GenerateTableRows = (awsResources) => {
 };
 
 const UpdateHtmlTemplate = (tableRows) => {
-  fs.readFile(templateFilePath, "utf8", (err, tableDisplayTemplate) => {
+  htmlFs.readFile(templateFilePath, "utf8", (err, tableDisplayTemplate) => {
     if (err) {
       console.error("Error reading the HTML template file:", err);
       return;
@@ -38,12 +41,16 @@ const UpdateHtmlTemplate = (tableRows) => {
 };
 
 const CreateHtmlFile = (htmlContent) => {
-  const outputHtmlPath = path.join("./src", "aws_resources.html");
-  fs.writeFile(outputHtmlPath, htmlContent, (err) => {
+  const outputHtmlPath = htmlPath.join("./src", "aws_resources.html");
+  htmlFs.writeFile(outputHtmlPath, htmlContent, (err) => {
     if (err) {
       console.error("Error writing the HTML file:", err);
     } else {
       console.log("HTML file has been saved.");
     }
   });
+};
+
+module.exports = {
+  ReadJsonResources: ReadJsonResources
 };
