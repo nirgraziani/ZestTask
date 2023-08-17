@@ -1,0 +1,17 @@
+{
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^20.5.0"
+  },
+  "name": "zest_task",
+  "version": "1.0.0",
+  "main": "extractARNs.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node extractARNs.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
