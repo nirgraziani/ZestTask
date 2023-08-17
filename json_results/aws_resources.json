@@ -1,0 +1,293 @@
+[
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-normalizer-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-deps-vuln-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-governor-stats-aggregator"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-session-term-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-sbom-vexes"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-os-android"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-resource-groups"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-ops-vendor"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-global-data-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-cyclonedx-tools-wrapper"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-data-importer-github-advisory"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-crowler-CVE"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-deps-vuln-trigger-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-os-windows"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-sbom-custom-licenses"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-crowler-CRE"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-lifecycle-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-customer-data-enrichment-status-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-global-data-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-integrations"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-crowler-CISA"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-spdx-tools-wrapper"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-data-importer-spdx-licenses"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-threat-intelligence-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-ops-vendor"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-normalizer-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-os-rtos"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-slackNotifyServerError"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-crowler-EPSS"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-threat-intelligence-gateway"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-users"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-session-term-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-os-windows"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-processor"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-customer-data-enrichment-dispatcher"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-data-services-elastic-search"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-customer-data-enrichment-dispatcher"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-crowler-CPE"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-threat-intelligence-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-session-term-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-deps-vuln-trigger-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-deps-vuln-trigger-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-customer-data-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-data-importer-github-advisory"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-users"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-os-rtos"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-downloader"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-vuln-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-crowler-CRE"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-sbom-vexes"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-crowler-EPSS"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-sboms"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-deps-vuln-trigger-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-threat-intelligence"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-data-importer-spdx-licenses"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-governors"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-crowler-CISA"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:test-func"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-spdx-tools-wrapper"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-import-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-integrations"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-sbom-policies"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-ops-data-lake"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-os-android"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-ops-data-lake"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-threat-intelligence-gateway"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-downloader"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-sbom-custom-licenses"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-crowler-CVE"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-entity-deletion-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-vulns-processor"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-governors"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-customer-data-enrichment-data-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-vuln-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-entity-deletion-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-governor-stats-aggregator"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-threat-intelligence"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-os-linux"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-import-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-os-linux"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-lifecycle-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-data-services-elastic-search"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-sboms"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-admin-resource-groups"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-admin-sbom-policies"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-data-services-data-lake"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-customer-data-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-customer-data-enrichment-status-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-threat-intelligence-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-slackNotifyServerError"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-sbom-customer-data-enrichment-data-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-deps-vuln-enricher-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-session-term-queue-worker"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-threat-intelligence-sync"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-batch-vulns-crowler-CPE"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:dev-batch-sbom-cyclonedx-tools-wrapper"
+  },
+  {
+    "ARN": "arn:aws:lambda:us-east-1:1234567890:function:integ-data-services-data-lake"
+  }
+]

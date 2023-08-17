@@ -8,7 +8,7 @@
   "main": "extractARNs.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node extractARNs.js"
+    "run": "node dist/extractARNs.js"
   },
   "keywords": [],
   "author": "",
