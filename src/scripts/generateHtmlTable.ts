@@ -41,7 +41,7 @@ const UpdateHtmlTemplate = (tableRows) => {
 };
 
 const CreateHtmlFile = (htmlContent) => {
-  const outputHtmlPath = htmlPath.join("./src", "aws_resources.html");
+  const outputHtmlPath = htmlPath.join("././dist", "aws_resources_table.html");
   htmlFs.writeFile(outputHtmlPath, htmlContent, (err) => {
     if (err) {
       console.error("Error writing the HTML file:", err);
