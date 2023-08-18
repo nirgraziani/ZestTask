@@ -42,4 +42,4 @@ class fileManipulationService {
   }
 }
 
-export default fileManipulationService;
+module.exports = { fileManipulationService };

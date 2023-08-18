@@ -1,13 +1,13 @@
 const extractARNsFile = require("./extractARNs");
-const generateHtmlTable = require("./generateHtmlTable");
+const generateHtmlTableFile = require("./generateHtmlTable");
 const server = require("./server");
 
-(() => {
-  extractARNs();
-  generateHtmlTable.ReadJsonResources();
-  server.StartServer();
+(async () => {
+  try {
+    await extractARNsFile.TriggerARNsFileManipulation();
+    await generateHtmlTableFile.TriggerHtmlGeneration();
+    server.StartServer();
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
 })();
-
-const extractARNs = () => {
-  extractARNsFile.TriggerARNsFileManipulation();
-};

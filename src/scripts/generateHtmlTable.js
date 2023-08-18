@@ -1,56 +1,33 @@
-const htmlFs = require("fs");
-const htmlPath = require("path");
+const path = require("path");
+const HtmlGeneratorServiceFile = require("../services/HtmlGeneratorService");
 
-const inputFilePath = htmlPath.join("./json_results", "aws_resources.json");
-const templateFilePath = htmlPath.join("./src", "tableDisplayTemplate.html");
+const inputFilePath = path.join("./json_results", "aws_resources.json");
+const templateFilePath = path.join("./src", "tableDisplayTemplate.html");
+const outputHtmlPath = path.join("./dist", "aws_resources_table.html");
 
-const ReadJsonResources = () => {
-  htmlFs.readFile(inputFilePath, "utf8", (err, data) => {
-    if (err) {
-      console.error("Error reading the JSON file:", err);
-      return;
-    }
+const service = new HtmlGeneratorServiceFile.HtmlGeneratorService();
 
-    const awsResources = JSON.parse(data);
-    GenerateTableRows(awsResources);
-  });
-};
+const TriggerHtmlGeneration = async () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const awsResources = await service.ReadJsonResources(inputFilePath);
 
-const GenerateTableRows = (awsResources) => {
-  let tableRows = "";
+      if (awsResources) {
+        const tableRows = service.GenerateTableRows(awsResources);
+        const htmlContent = await service.UpdateHtmlTemplate(
+          templateFilePath,
+          tableRows
+        );
 
-  awsResources.forEach((resource) => {
-    tableRows += `<tr><td>${resource.ARN}</td><td>${resource.ResourceType}</td></tr>\n`;
-  });
-  UpdateHtmlTemplate(tableRows);
-};
-
-const UpdateHtmlTemplate = (tableRows) => {
-  htmlFs.readFile(templateFilePath, "utf8", (err, tableDisplayTemplate) => {
-    if (err) {
-      console.error("Error reading the HTML template file:", err);
-      return;
-    }
-
-    const htmlContent = tableDisplayTemplate.replace(
-      "<!-- Table rows will be inserted here -->",
-      tableRows
-    );
-    CreateHtmlFile(htmlContent);
-  });
-};
-
-const CreateHtmlFile = (htmlContent) => {
-  const outputHtmlPath = htmlPath.join("././dist", "aws_resources_table.html");
-  htmlFs.writeFile(outputHtmlPath, htmlContent, (err) => {
-    if (err) {
-      console.error("Error writing the HTML file:", err);
-    } else {
-      console.log("HTML file has been saved.");
+        if (htmlContent) {
+          await service.CreateHtmlFile(outputHtmlPath, htmlContent);
+        }
+      }
+      resolve();
+    } catch (error) {
+      reject(error);
     }
   });
 };
 
-module.exports = {
-  ReadJsonResources: ReadJsonResources
-};
+module.exports = { TriggerHtmlGeneration };
