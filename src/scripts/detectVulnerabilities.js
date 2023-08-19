@@ -16,10 +16,12 @@ const TriggerVulnerabilitiesDetection = async () => {
       await fileManipulationService
         .ReadFile(prowlerFilePath)
         .then(async (data) => {
-          const parsedProwlerFindings = JSON.parse(data);
-          return (vulnerabilities = findings.filter(
-            (finding) => finding.Status === "FAIL"
-          ));
+          const vulnerabilities =
+            await fileManipulationService.FindVulnerabilities(data);
+
+          const aggregatedData =
+            fileManipulationService.AggregateData(vulnerabilities);
+          console.log(aggregatedData);
         });
       resolve();
     } catch (error) {

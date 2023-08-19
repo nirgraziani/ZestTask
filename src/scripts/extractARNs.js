@@ -20,8 +20,13 @@ const TriggerARNsFileManipulation = async () => {
     try {
       await fileManipulationService.ReadFile(ARNsPath).then(async (data) => {
         if (data) {
-          const extractedData = fileManipulationService.extractContent(data);
-          await service.ConvertToJson(extractedData, outputFilePath);
+          const extractedAwsResources =
+            fileManipulationService.extractContent(data);
+
+          await fileManipulationService.ConvertToJson(
+            extractedAwsResources,
+            outputFilePath
+          );
         }
       });
       resolve();
