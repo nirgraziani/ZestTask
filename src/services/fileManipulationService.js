@@ -14,22 +14,6 @@ class fileManipulationService {
     }
   };
 
-  // extractContent = (data) => {
-  //   const awsResources = [];
-  //   const lines = data.split("\n");
-
-  //   lines.forEach((line) => {
-  //     if (line.includes("arn:aws:")) {
-  //       const resourceDetails = line.trim().split(" ");
-  //       const arn = resourceDetails[0];
-  //       const resourceType = resourceDetails[1];
-  //       awsResources.push({ ARN: arn, ResourceType: resourceType });
-  //     }
-  //   });
-  //   this.awsResources = awsResources;
-  //   return awsResources;
-  // };
-
   extractContent = (data) => {
     const awsResources = data
       .split("\n")
@@ -45,8 +29,8 @@ class fileManipulationService {
           Partition: partition,
           Service: service,
           Region: region,
-          "Account ID": accountId,
-          "Function Name": functionName
+          AccountId: accountId,
+          ResourceId: functionName
         };
       });
 
@@ -73,12 +57,9 @@ class fileManipulationService {
     });
   };
 
-  AggregateData = (vulnerabilities) => {
-    debugger;
-    return this.awsResources.map((resource) => {
-      console.log("resource", resource);
+  AggregateData = (vulnerabilities, parsedResourcesJson) => {
+    return parsedResourcesJson.map((resource) => {
       const relatedFindings = vulnerabilities.filter((vulnerability) => {
-        console.log("vulnerability", vulnerability);
         vulnerability.ResourceId === resource.ResourceId;
       });
       return {

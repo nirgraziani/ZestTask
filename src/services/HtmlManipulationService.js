@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 
-class HtmlGeneratorService {
+class HtmlManipulationService {
   async ReadJsonResources(inputFilePath) {
     try {
       const data = await fs.readFile(inputFilePath, "utf8");
@@ -19,8 +19,8 @@ class HtmlGeneratorService {
       <td>${resource.Partition}</td>
       <td>${resource.Service}</td>
       <td>${resource.Region}</td>
-      <td>${resource["Account ID"]}</td>
-      <td>${resource["Function Name"]}</td>
+      <td>${resource.AccountId}</td>
+      <td>${resource.ResourceId}</td>
     </tr>\n`;
     });
     return tableRows;
@@ -46,4 +46,4 @@ class HtmlGeneratorService {
   }
 }
 
-module.exports = { HtmlGeneratorService };
+module.exports = { HtmlManipulationService };

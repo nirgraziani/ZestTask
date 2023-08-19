@@ -1,5 +1,5 @@
 const path = require("path");
-const HtmlGeneratorServiceFile = require("../services/HtmlGeneratorService");
+const HtmlManipulationServiceFile = require("../services/HtmlManipulationService");
 
 const inputFilePath = path.join("./json_results", "aws_resources.json");
 const templateFilePath = path.join(
@@ -8,22 +8,29 @@ const templateFilePath = path.join(
 );
 const outputHtmlPath = path.join("./src", "aws_resources_table.html");
 
-const service = new HtmlGeneratorServiceFile.HtmlGeneratorService();
+const HtmlManipulationService =
+  new HtmlManipulationServiceFile.HtmlManipulationService();
 
 const TriggerHtmlGeneration = async () => {
   return new Promise(async (resolve, reject) => {
     try {
-      const awsResources = await service.ReadJsonResources(inputFilePath);
+      const awsResources = await HtmlManipulationService.ReadJsonResources(
+        inputFilePath
+      );
 
       if (awsResources) {
-        const tableRows = service.GenerateTableRows(awsResources);
-        const htmlContent = await service.UpdateHtmlTemplate(
+        const tableRows =
+          HtmlManipulationService.GenerateTableRows(awsResources);
+        const htmlContent = await HtmlManipulationService.UpdateHtmlTemplate(
           templateFilePath,
           tableRows
         );
 
         if (htmlContent) {
-          await service.CreateHtmlFile(outputHtmlPath, htmlContent);
+          await HtmlManipulationService.CreateHtmlFile(
+            outputHtmlPath,
+            htmlContent
+          );
         }
       }
       resolve();
