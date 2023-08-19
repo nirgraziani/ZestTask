@@ -4,7 +4,7 @@ const app = express();
 
 const StartServer = () => {
   app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "aws_resources_table.html"));
+    res.sendFile(path.join(__dirname, "../../src/aws_resources_table.html"));
   });
 
   const PORT = process.env.PORT || 3000;

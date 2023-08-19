@@ -3,7 +3,7 @@ const HtmlGeneratorServiceFile = require("../services/HtmlGeneratorService");
 
 const inputFilePath = path.join("./json_results", "aws_resources.json");
 const templateFilePath = path.join("./src", "tableDisplayTemplate.html");
-const outputHtmlPath = path.join("./dist", "aws_resources_table.html");
+const outputHtmlPath = path.join("./src", "aws_resources_table.html");
 
 const service = new HtmlGeneratorServiceFile.HtmlGeneratorService();
 
