@@ -60,7 +60,7 @@ class fileManipulationService {
   AggregateData = (vulnerabilities, parsedResourcesJson) => {
     return parsedResourcesJson.map((resource) => {
       const relatedFindings = vulnerabilities.filter((vulnerability) => {
-        vulnerability.ResourceId === resource.ResourceId;
+        return vulnerability.ResourceId === resource.ResourceId;
       });
       return {
         ...resource,
