@@ -3,7 +3,7 @@ class fileManipulationService {
     this.fileSystem = fileSystem;
   }
 
-  async ReadResourceFile(filePath) {
+  async ReadFile(filePath) {
     try {
       const data = await this.fileSystem.readFile(filePath, "utf8");
       return data;
