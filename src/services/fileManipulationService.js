@@ -1,9 +1,10 @@
 class fileManipulationService {
   constructor(fileSystem) {
     this.fileSystem = fileSystem;
+    this.awsResources = [];
   }
 
-  async ReadResourceFile(filePath) {
+  ReadFile = async (filePath) => {
     try {
       const data = await this.fileSystem.readFile(filePath, "utf8");
       return data;
@@ -11,35 +12,63 @@ class fileManipulationService {
       console.error("Error reading the file:", err);
       return null;
     }
-  }
+  };
 
-  extractContent(data) {
-    const awsResources = [];
-    const lines = data.split("\n");
+  extractContent = (data) => {
+    const awsResources = data
+      .split("\n")
+      .filter((line) => line.includes("arn:aws"))
+      .map((line) => {
+        const [arnPrefix, partition, service, region, accountId, ...rest] = line
+          .trim()
+          .split(":");
+        const functionName = rest.join(":").split(":")[1];
 
-    lines.forEach((line) => {
-      if (line.includes("arn:aws:")) {
-        const resourceDetails = line.trim().split(" ");
-        const arn = resourceDetails[0];
-        const resourceType = resourceDetails[1];
-        awsResources.push({ ARN: arn, ResourceType: resourceType });
-      }
-    });
+        return {
+          Section: arnPrefix,
+          Partition: partition,
+          Service: service,
+          Region: region,
+          AccountId: accountId,
+          ResourceId: functionName
+        };
+      });
 
+    this.awsResources = awsResources;
     return awsResources;
-  }
+  };
 
-  async ConvertToJson(extractedData, outputFilePath) {
+  ConvertToJson = async (extractedAwsResources, outputFilePath) => {
     try {
       await this.fileSystem.writeFile(
         outputFilePath,
-        JSON.stringify(extractedData, null, 2)
+        JSON.stringify(extractedAwsResources, null, 2)
       );
       console.log("JSON file has been saved.");
     } catch (err) {
       console.error("Error writing the JSON file:", err);
     }
-  }
+  };
+
+  FindVulnerabilities = async (data) => {
+    const parsedProwlerFindings = JSON.parse(data);
+    return parsedProwlerFindings.filter((finding) => {
+      return finding.Status === "FAIL";
+    });
+  };
+
+  AggregateData = (vulnerabilities, parsedResourcesJson) => {
+    return parsedResourcesJson.map((resource) => {
+      const relatedFindings = vulnerabilities.filter((vulnerability) => {
+        return vulnerability.ResourceId === resource.ResourceId;
+      });
+      return {
+        ResourceId: resource.ResourceId,
+        Status: relatedFindings.map((finding) => finding.Status),
+        Findings: relatedFindings.map((finding) => finding.CheckTitle)
+      };
+    });
+  };
 }
 
 module.exports = { fileManipulationService };

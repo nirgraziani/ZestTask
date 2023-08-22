@@ -12,17 +12,21 @@ const outputFilePath = resourcesPath.join(
   "aws_resources.json"
 );
 
-const service = new fileManipulationServiceFile.fileManipulationService(
-  fsPromises
-);
+const _fileManipulationService =
+  new fileManipulationServiceFile.fileManipulationService(fsPromises);
 
 const TriggerARNsFileManipulation = async () => {
   return new Promise(async (resolve, reject) => {
     try {
-      await service.ReadResourceFile(ARNsPath).then(async (data) => {
+      await _fileManipulationService.ReadFile(ARNsPath).then(async (data) => {
         if (data) {
-          const extractedData = service.extractContent(data);
-          await service.ConvertToJson(extractedData, outputFilePath);
+          const extractedAwsResources =
+            _fileManipulationService.extractContent(data);
+
+          await _fileManipulationService.ConvertToJson(
+            extractedAwsResources,
+            outputFilePath
+          );
         }
       });
       resolve();

@@ -41,7 +41,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-json_results/
+
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -132,3 +132,4 @@ dist
 
 
 aws_resources_table.html
+json_results/aws_resources.json
