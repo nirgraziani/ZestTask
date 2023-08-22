@@ -12,28 +12,47 @@ const resourcesJsonPath = prowlerPath.join(
   "aws_resources.json"
 );
 
-const fileManipulationService =
+const templateFilePath = prowlerPath.join(
+  "./src/html_templates",
+  "prowlerTableTemplate.html"
+);
+
+const outputHtmlPath = prowlerPath.join("./src", "prowler_results_table.html");
+
+const _fileManipulationService =
   new fileManipulationServiceFile.fileManipulationService(fsPromises);
 
-const htmlManipulationService =
+const _htmlManipulationService =
   new htmlManipulationServiceFile.HtmlManipulationService();
 
 const TriggerVulnerabilitiesDetection = async () => {
   return new Promise(async (resolve, reject) => {
     try {
-      await fileManipulationService
+      await _fileManipulationService
         .ReadFile(prowlerFilePath)
         .then(async (data) => {
           const vulnerabilities =
-            await fileManipulationService.FindVulnerabilities(data);
+            await _fileManipulationService.FindVulnerabilities(data);
           const parsedResourcesJson =
-            await htmlManipulationService.ReadJsonResources(resourcesJsonPath);
+            await _htmlManipulationService.ReadJsonResources(resourcesJsonPath);
 
-          const aggregatedData = await fileManipulationService.AggregateData(
+          const aggregatedData = await _fileManipulationService.AggregateData(
             vulnerabilities,
             parsedResourcesJson
           );
-          console.log("aggregatedData", aggregatedData);
+
+          const tableRows =
+            _htmlManipulationService.GenerateTableRows(aggregatedData);
+
+          const htmlContent = await _htmlManipulationService.UpdateHtmlTemplate(
+            templateFilePath,
+            tableRows
+          );
+
+          await _htmlManipulationService.CreateHtmlFile(
+            outputHtmlPath,
+            htmlContent
+          );
         });
       resolve();
     } catch (error) {

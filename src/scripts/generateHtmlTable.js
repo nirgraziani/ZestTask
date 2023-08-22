@@ -8,26 +8,26 @@ const templateFilePath = path.join(
 );
 const outputHtmlPath = path.join("./src", "aws_resources_table.html");
 
-const HtmlManipulationService =
+const _htmlManipulationService =
   new HtmlManipulationServiceFile.HtmlManipulationService();
 
 const TriggerHtmlGeneration = async () => {
   return new Promise(async (resolve, reject) => {
     try {
-      const awsResources = await HtmlManipulationService.ReadJsonResources(
+      const awsResources = await _htmlManipulationService.ReadJsonResources(
         inputFilePath
       );
 
       if (awsResources) {
         const tableRows =
-          HtmlManipulationService.GenerateTableRows(awsResources);
-        const htmlContent = await HtmlManipulationService.UpdateHtmlTemplate(
+          _htmlManipulationService.GenerateTableRows(awsResources);
+        const htmlContent = await _htmlManipulationService.UpdateHtmlTemplate(
           templateFilePath,
           tableRows
         );
 
         if (htmlContent) {
-          await HtmlManipulationService.CreateHtmlFile(
+          await _htmlManipulationService.CreateHtmlFile(
             outputHtmlPath,
             htmlContent
           );

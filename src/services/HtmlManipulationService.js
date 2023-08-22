@@ -11,18 +11,29 @@ class HtmlManipulationService {
     }
   }
 
-  GenerateTableRows(awsResources) {
+  GenerateTableRows(data) {
     let tableRows = "";
-    awsResources.forEach((resource) => {
-      tableRows += `<tr>
-      <td>${resource.Section}</td>
-      <td>${resource.Partition}</td>
-      <td>${resource.Service}</td>
-      <td>${resource.Region}</td>
-      <td>${resource.AccountId}</td>
-      <td>${resource.ResourceId}</td>
-    </tr>\n`;
-    });
+    if (data[0].AccountId) {
+      data.forEach((resource) => {
+        tableRows += `<tr>
+        <td>${resource.Section}</td>
+        <td>${resource.Partition}</td>
+        <td>${resource.Service}</td>
+        <td>${resource.Region}</td>
+        <td>${resource.AccountId}</td>
+        <td>${resource.ResourceId}</td>
+      </tr>\n`;
+      });
+    } else if (data[0].Findings) {
+      data.forEach((resource) => {
+        tableRows += `<tr>
+        <td>${resource.ResourceId}</td>
+        <td>${resource.Status.length}</td>
+        <td>${resource.Findings}<br/></td>
+      </tr>\n`;
+      });
+    }
+
     return tableRows;
   }
 

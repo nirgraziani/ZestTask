@@ -63,7 +63,8 @@ class fileManipulationService {
         return vulnerability.ResourceId === resource.ResourceId;
       });
       return {
-        ...resource,
+        ResourceId: resource.ResourceId,
+        Status: relatedFindings.map((finding) => finding.Status),
         Findings: relatedFindings.map((finding) => finding.CheckTitle)
       };
     });
