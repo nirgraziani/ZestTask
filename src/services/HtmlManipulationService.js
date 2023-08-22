@@ -29,7 +29,7 @@ class HtmlManipulationService {
         tableRows += `<tr>
         <td>${resource.ResourceId}</td>
         <td>${resource.Status.length}</td>
-        <td>${resource.Findings}<br/></td>
+        <td>${resource.Findings}</td>
       </tr>\n`;
       });
     }

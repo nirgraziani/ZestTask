@@ -36,29 +36,41 @@ const TriggerVulnerabilitiesDetection = async () => {
           const parsedResourcesJson =
             await _htmlManipulationService.ReadJsonResources(resourcesJsonPath);
 
-          const aggregatedData = await _fileManipulationService.AggregateData(
-            vulnerabilities,
-            parsedResourcesJson
-          );
+          if (vulnerabilities && parsedResourcesJson) {
+            const aggregatedData = await _fileManipulationService.AggregateData(
+              vulnerabilities,
+              parsedResourcesJson
+            );
 
-          const tableRows =
-            _htmlManipulationService.GenerateTableRows(aggregatedData);
-
-          const htmlContent = await _htmlManipulationService.UpdateHtmlTemplate(
-            templateFilePath,
-            tableRows
-          );
-
-          await _htmlManipulationService.CreateHtmlFile(
-            outputHtmlPath,
-            htmlContent
-          );
+            generateProwlerResultsHtml(aggregatedData);
+          }
         });
       resolve();
     } catch (error) {
       reject(error);
     }
   });
+};
+
+const generateProwlerResultsHtml = async (aggregatedData) => {
+  if (aggregatedData) {
+    const tableRows =
+      _htmlManipulationService.GenerateTableRows(aggregatedData);
+
+    if (tableRows) {
+      const htmlContent = await _htmlManipulationService.UpdateHtmlTemplate(
+        templateFilePath,
+        tableRows
+      );
+
+      if (htmlContent) {
+        await _htmlManipulationService.CreateHtmlFile(
+          outputHtmlPath,
+          htmlContent
+        );
+      }
+    }
+  }
 };
 
 module.exports = { TriggerVulnerabilitiesDetection };
