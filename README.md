@@ -16,7 +16,7 @@ The project contains the following scripts:
 
 `server.js` script - Builds the local server.
 
-`extractARNs.js` script - Responsible for the extarction of the data from the resource file provided.
+`extractARNs.js` script - Responsible for the extraction of the data from the resource file provided.
 
 `generateHtmlTable.js` script - Responsible for generating Html tables.
 
@@ -42,7 +42,6 @@ Known issues:
 
 Prerequisites:
 Node.js
-Docker
 Docker Desktop
 
 How to run:
