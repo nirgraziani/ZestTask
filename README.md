@@ -6,7 +6,7 @@ Using the following libraries:
 
 API Communication: Express
 
-This project uses NodeJs mainly for the reason that it is the framework I'm most comfortable with.
+This project uses NodeJs mainly for the reason that it is the environment I'm most comfortable with.
 
 As you can see I chose not to use a NestJs because in my opinion that would be an overkill for this type of project, instead I decided to use Vanilla JS with DI.
 
@@ -53,9 +53,11 @@ Using Docker:
 3. Start Docker Desktop
 4. Run `npm run docker-build`
 5. Run `npm run docker-start`
+6. Go to `http://localhost:3000/`
 
 Not using Docker:
 
 1. Clone this repo
 2. Run `npm install`
 3. Run `npm run start`
+4. 6. Go to `http://localhost:3000/`
