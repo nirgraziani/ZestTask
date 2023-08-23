@@ -60,4 +60,4 @@ Not using Docker:
 1. Clone this repo
 2. Run `npm install`
 3. Run `npm run start`
-4. 6. Go to `http://localhost:3000/`
+4. Go to `http://localhost:3000/`
